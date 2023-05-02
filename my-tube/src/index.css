@@ -7,7 +7,7 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 ::-webkit-scrollbar {
@@ -84,5 +84,9 @@ a {
   }
   .search-bar{
     width:200px;
+  }
+  
+  .copyright{
+    display:none !important;
   }
 }

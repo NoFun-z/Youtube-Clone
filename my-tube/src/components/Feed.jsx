@@ -5,31 +5,32 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 import { Sidebar, Videos } from './';
 
 const Feed = () => {
-
-  const [SelectedCT, setSlectedCT] = useState('New');
-  const [videos, setVideos] = useState([]);
+  const [selectedCT, setSelectedCT] = useState("New");
+  const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${SelectedCT}`)
-    .then((data) => setVideos(data.items))
-  }, [SelectedCT]);
+    setVideos(null);
+
+    fetchFromAPI(`search?part=snippet&q=${selectedCT}`)
+      .then((data) => setVideos(data.items))
+    }, [selectedCT]);
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box sx={{ height: { sx: 'auto', md: '92vh '}, borderRight: '1px solid #3d3d3d', pd: { sx: 0, md: 2 }}}>
         <Sidebar
-          selectedCategory={SelectedCT}
-          setSelectedCategory={setSlectedCT}
+          selectedCategory={selectedCT}
+          setSelectedCategory={setSelectedCT}
         />
 
-        <Typography classname="copyright" variant='body2' sx={{ mt: 1.5, color: '#fff' }}>
-          Copyright 2023 Loc Tube
+        <Typography classname="copyright" variant='body2' sx={{ mt: 0, ml: 0.5, color: '#fff' }}>
+          Copyright Loc Tube
         </Typography>
       </Box>
 
-      <Box>
+      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: 'white' }}>
-            {SelectedCT} <span style={{ color: '#F31503'}}>videos</span>
+            {selectedCT} <span style={{ color: '#F31503'}}>videos</span>
         </Typography>
 
         <Videos videos={videos}/>

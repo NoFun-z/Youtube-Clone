@@ -10,9 +10,10 @@ const navbar = () => {
       direction="row" 
       alignItems="center" 
       p={2} 
-      sx={{position: 'sticky', background: '#000', top: 0, justifyContent: 'space-between'}}>
+      sx={{position: 'sticky', background: '#202321', top: 0, justifyContent: 'space-between'}}>
       <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
         <img src={logo} alt="logo" height={45} />  
+        <span style={{ fontWeight: 'bold', marginLeft: '3px' }}>MyTube</span>
       </Link>
       <SearchBar/>
     </Stack>
