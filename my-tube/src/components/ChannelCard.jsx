@@ -4,7 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Link } from 'react-router-dom';
 import { demoProfilePicture } from '../utils/constants';
 
-const ChannelCard = ({ channelDetail, marginTop }) => {
+const ChannelCard = ({ channelDetail, marginTop, isDetailed }) => {
 
   const [showChannelDesc, setShowChannelDesc] = useState(null);
 
@@ -42,23 +42,26 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
               {channelDetail?.snippet?.title}{' '}
               <CheckCircleIcon sx={{ fontSize: '14px', color: 'gray', ml: '5px' }} />
             </Typography>
-            <Typography sx={{ fontSize: '15px', fontWeight: 500, color: 'gray' }}>
-              {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString('en-US')} {" "}
-              {parseInt(channelDetail?.statistics?.subscriberCount) > 1
-                || parseInt(channelDetail?.statistics?.subscriberCount) > 1 ? "Subscribers" : "Subscriber"} {" - "}
-              {channelDetail?.statistics?.videoCount}{" "}
-              {parseInt(channelDetail?.statistics?.videoCount) < 1
-                || parseInt(channelDetail?.statistics?.videoCount) > 1 ? "videos" : "video"}
-            </Typography>
-            <Typography sx={{ fontSize: '15px', fontWeight: 500, color: 'gray' }}>
-              {channelDetail?.statistics?.viewCount}{" "}
-              {parseInt(channelDetail?.statistics?.viewCount) < 1
-                || parseInt(channelDetail?.statistics?.viewCount) > 1 ? "total video views" : "total video view"}
-            </Typography>
+            {isDetailed && (<>
+              <Typography sx={{ fontSize: '15px', fontWeight: 500, color: 'gray' }}>
+                {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString('en-US')} {" "}
+                {parseInt(channelDetail?.statistics?.subscriberCount) > 1
+                  || parseInt(channelDetail?.statistics?.subscriberCount) > 1 ? "Subscribers" : "Subscriber"} {" - "}
+                {channelDetail?.statistics?.videoCount}{" "}
+                {parseInt(channelDetail?.statistics?.videoCount) < 1
+                  || parseInt(channelDetail?.statistics?.videoCount) > 1 ? "videos" : "video"}
+              </Typography>
+              <Typography sx={{ fontSize: '15px', fontWeight: 500, color: 'gray' }}>
+                {channelDetail?.statistics?.viewCount}{" "}
+                {parseInt(channelDetail?.statistics?.viewCount) < 1
+                  || parseInt(channelDetail?.statistics?.viewCount) > 1 ? "total video views" : "total video view"}
+              </Typography>
+            </>)}
+
           </CardContent>
         </Link>
       </Box>
-      {channelDetail?.snippet?.description &&
+      {isDetailed && channelDetail?.snippet?.description &&
         (<Box sx={{ padding: "15px" }}>
           <Typography sx={{ fontSize: '15px', fontWeight: 500, color: 'gray' }}>
             <span style={{ fontWeight: "bold", color: "#f2f2f2" }}>Channel Descriptions: </span>
@@ -74,7 +77,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
               </>
             ) : (
               <>
-                {channelDetail?.snippet?.description}
+                {channelDetail?.snippet?.description} <br/>
                 <span className='view-desc' style={{ display: "inline-block", color: "#f2f2f2" }}
                   onClick={() => setShowChannelDesc(false)}> Hide Less</span>
               </>

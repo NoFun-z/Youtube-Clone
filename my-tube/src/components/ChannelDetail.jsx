@@ -42,7 +42,7 @@ const ChannelDetail = () => {
     <Box minHeight="92vh">
       <Box>
         <div style={bannerStyles} />
-        <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
+        <ChannelCard channelDetail={channelDetail} marginTop="-93px" isDetailed={true} />
       </Box>
       <Box p={2} display="flex"
         justifyContent={channelDetail?.statistics?.videoCount > 0 ? "flex-start" : "center"}>
