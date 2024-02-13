@@ -3,20 +3,21 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #1c1c1c;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: #f2f2f2;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
   height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(114, 113, 113);
+  background-color: #ff4d4d;
   border-radius: 10px;
   height: 200px;
 }
@@ -26,23 +27,36 @@ a {
 }
 
 .category-btn:hover {
-  background-color: #FC1503 !important;
-  color: white !important;
+  background-color: #ff4d4d !important;
+  color: #f2f2f2 !important;
 }
 
 .category-btn:hover span{
-  color: white !important;
+  color: #f2f2f2 !important;
 }
 
 .react-player {
-  height: 77vh !important;
+  min-height: 30vh !important;
+  height: 74vh !important;
   width: 100% !important;
+  object-fit: contain !important;
+  overflow: hidden !important;
+  border-radius: 15px !important;
 }
 
 .search-bar{
   border:none;
   outline:none;
   width:350px;
+}
+
+.view-desc{
+  font-size: 14px;
+}
+
+.view-desc:hover, .hide-desc:hover{
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .category-btn{
@@ -58,19 +72,76 @@ a {
 
   padding: 7px 15px;
   margin: 10px 0px;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1600px) {
+  .react-player {
+    height: 75vh !important;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .react-player {
+    height: 70vh !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .react-player {
+    height: 65vh !important;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .react-player {
+    height: 56vh !important;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .react-player {
+    height: 60vh !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .react-player {
+    height: 52vh !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .react-player {
+    height: 45vh !important;
+  }
 }
 
 @media screen and (max-width: 900px) {
   .category-btn{
     margin: 10px;
   }
+  
+  .react-player {
+    height: 62vh !important;
+  }
 }
 
 @media screen and (max-width:800px){
   .copyright{
     display:none !important;
+  }
+
+  .react-player {
+    height: 50vh !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .react-player {
+    height: 45vh !important;
   }
 }
 
@@ -80,13 +151,40 @@ a {
   }
 
   .react-player {
-    height: 45vh !important;
+    height: 40vh !important;
   }
+
   .search-bar{
-    width:200px;
+    width: 200px;
   }
   
   .copyright{
     display:none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-bar{
+    width: 120px;
+  }
+
+  .react-player {
+    height: 35vh !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search-bar{
+    width: 120px;
+  }
+
+  .react-player {
+    height: 30vh !important;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .search-bar{
+    width: 80px;
   }
 }
